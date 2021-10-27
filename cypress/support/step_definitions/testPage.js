@@ -2,7 +2,7 @@
 import { And, Given } from "cypress-cucumber-preprocessor/steps";
 import { visitPage } from '../actions/visitPage'
 import { doRequest } from '../actions/doRequest'
-import { getCellName } from '../actions/getTableName'
+import { getCellName } from '../actions/getCellName'
 
 Given('I go to books page', () => {
 
