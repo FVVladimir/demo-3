@@ -2,5 +2,5 @@
     "integrationFolder": "cypress/features",
     "supportFile": "cypress/support/index.js",
     "testFiles": "**/*.feature",
-    "baseUrl":"https://demoqa.com"
+    "baseUrl":"https://demoqa.com/books"
 }
