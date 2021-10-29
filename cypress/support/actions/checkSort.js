@@ -1,10 +1,19 @@
-import { btnAuth } from "../pageObject/booksPage"
+// import { btnAuth } from "../pageObject/booksPage"
 
+import { booksPage } from '../pageObject/pageObjects'
 
 export const checkSort = () => {
-    
-    cy.get(btnAuth).eq(2).click();
-    cy.get('.rt-tr-group').eq(0).should('contain','Addy Osmani');
-    cy.get(btnAuth).eq(2).click();
-    cy.get('.rt-tr-group').eq(0).should('contain','Richard E');
+    const sortAuthorList = [];
+    const notSortAuthorList = [];
+    cy.get(booksPage.authorName).prev().each(elem => {
+        notSortAuthorList.push(elem.text())
+        notSortAuthorList.sort();
+    })
+    cy.get(booksPage.btnAuth).contains('Author').click()
+    cy.get(booksPage.authorName).prev().each(elem => {
+        sortAuthorList.push(elem.text())
+    })
+        cy.get(sortAuthorList).each((notSortAuthorList, i) => {
+        expect(notSortAuthorList).to.equal(sortAuthorList[i])
+    })
 }

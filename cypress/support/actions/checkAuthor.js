@@ -20,7 +20,7 @@ export const checkAuthor = () => {
     
     const authorNameFromPage = [];
 
-    cy.get('.rt-td:last-child').prev().as('authorNameFromPage');
+    cy.get(booksPage.authorName).prev().as('authorNameFromPage');
      cy.get('@authorNameFromPage').each(elem => {
     authorNameFromPage.push(elem.text());
     })
