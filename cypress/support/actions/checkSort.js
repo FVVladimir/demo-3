@@ -13,7 +13,7 @@ export const checkSort = () => {
     cy.get(booksPage.authorName).prev().each(elem => {
         sortAuthorList.push(elem.text())
     })
-        cy.get(sortAuthorList).each((notSortAuthorList, i) => {
-        expect(notSortAuthorList).to.equal(sortAuthorList[i])
+        cy.get(sortAuthorList).each((el , i) => {
+        expect(el).to.equal(notSortAuthorList[i])
     })
 }
